@@ -1,0 +1,32 @@
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Dependencies
+node_modules/
+**/node_modules/
+**/.venv/
+
+# Build output
+frontend/dist/
+.next/
+out/
+
+# Python cache and tests
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+
+# Local tools and operating-system files
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local Supabase state
+supabase/.temp/
