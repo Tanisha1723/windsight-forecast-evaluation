@@ -181,17 +181,22 @@ Run the automated evaluation tests from the project root:
 
 The repository also contains manual scripts for inspecting Elexon responses and validating evaluation consistency. Some scripts require network access to the live API.
 
-## Deployment
+## Live Demo
 
-Deploy the frontend and backend as separate services:
+- **Frontend Dashboard:** https://windsight-frontend-one.vercel.app/
+- **Backend API Health:** https://windsight-api-7iqs.onrender.com/api/health
+- **Interactive API Documentation:** https://windsight-api-7iqs.onrender.com/docs
 
-- Frontend: Vercel or another static hosting provider
-- Backend: a Docker-capable hosting provider
+The frontend is deployed on Vercel, and the FastAPI backend is deployed on Render using Docker.
 
-Set `VITE_API_BASE_URL` in the frontend hosting environment to the deployed backend's public API URL. Configure backend CORS to permit the deployed frontend origin before deployment.
+### Deployment Configuration
 
-Deployment URLs will be added after the services are published.
+The frontend uses the `VITE_API_BASE_URL` environment variable to connect to the deployed backend.
 
-## License
+The backend uses `CORS_ORIGINS` to specify which frontend origins are permitted to access the API.
 
-Add a license if you intend to distribute this project under a specific open-source license.
+### Notes
+
+- The Render free instance may spin down after inactivity, so the first request after a period of inactivity can take longer.
+- The application retrieves generation and forecast data from the Elexon BMRS API.
+- The default evaluation cutoff is 24 hours before delivery and can be changed in the dashboard.
